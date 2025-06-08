@@ -2,16 +2,22 @@
 #include <dwmapi.h>
 
 BOOL CALLBACK EnumWindowsProc(HWND hWnd, LPARAM lParam) {
-    DWMNCRENDERINGPOLICY pol = DWMNCRP_DISABLED;
-    DwmSetWindowAttribute(hWnd, DWMWA_NCRENDERING_POLICY, &pol, sizeof(DWMNCRENDERINGPOLICY));
+    DWMNCRENDERINGPOLICY policy = DWMNCRP_DISABLED;
+    HRESULT hr = DwmSetWindowAttribute(
+        hWnd,
+        DWMWA_NCRENDERING_POLICY,
+        &policy,
+        sizeof(DWMNCRENDERINGPOLICY)
+    );
+
     return TRUE;
 }
 
-int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
-{
+int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow) {
     for (;;) {
-        Sleep(1);
+        Sleep(2);
+        SetProcessDPIAware(); 
         EnumDesktopWindows(NULL, EnumWindowsProc, NULL);
     }
-    return 0;
+    return 0; 
 }
