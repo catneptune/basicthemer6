@@ -1,0 +1,4 @@
+BEService.exe
+EasyAntiCheat.exe
+VALORANT.exe
+BattlEye.exe 
