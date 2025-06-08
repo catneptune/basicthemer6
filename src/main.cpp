@@ -14,11 +14,10 @@ BOOL CALLBACK EnumWindowsProc(HWND hWnd, LPARAM lParam) {
 }
 
 int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow) {
+    SetProcessDPIAware(); 
     for (;;) {
         Sleep(2);
-        SetProcessDPIAware(); 
         EnumDesktopWindows(NULL, EnumWindowsProc, (LPARAM)0);
-        EnumDesktopWindows(NULL, EnumWindowsProc, NULL);
     }
     return 0; 
 }
