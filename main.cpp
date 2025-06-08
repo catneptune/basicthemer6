@@ -17,6 +17,7 @@ int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmd
     for (;;) {
         Sleep(2);
         SetProcessDPIAware(); 
+        EnumDesktopWindows(NULL, EnumWindowsProc, (LPARAM)0);
         EnumDesktopWindows(NULL, EnumWindowsProc, NULL);
     }
     return 0; 
