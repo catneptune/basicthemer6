@@ -1,2 +1,4 @@
-# basicthemer6
-alcatel SUCKS!!!!!!!!!! so i made basicthemer cooler. it's in c++ but the way it applies sucks. VERY lightweight
+archived 6/11/2025, still usable but won't be updated
+
+## basicthemer6
+basicthemer5 but exceptionally tiny (15loc or something)
